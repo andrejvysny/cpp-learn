@@ -5,7 +5,7 @@ on:
 name: Handle Release
 jobs:
 
-  build-and-test:
+  build-job:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,7 +16,7 @@ jobs:
           name: main-binary
           path: bin/main
 
-  release:
+  release-job:
     needs:
       - build
     runs-on: ubuntu-latest
