@@ -15,3 +15,16 @@ jobs:
         with:
           name: main-binary
           path: bin/main
+
+  release:
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "main-binary"
+          body: "main binary release"
